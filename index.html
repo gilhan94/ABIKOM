@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABICOM - Solusi Teknologi Anda</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icon Library: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ===== Header / Navbar ===== -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold text-xl">
+                    A
+                </div>
+                <span class="text-2xl font-bold text-slate-800">ABICOM</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#produk" class="text-slate-600 hover:text-blue-600 font-semibold">Produk</a>
+                <div class="relative dropdown">
+                    <button class="text-slate-600 hover:text-blue-600 font-semibold flex items-center">
+                        Servis <i class="ph-bold ph-caret-down ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-lg p-2 mt-1 w-48 z-50">
+                        <a href="#lacak" class="block px-4 py-2 hover:bg-slate-100 rounded">Lacak Servis</a>
+                        <a href="#estimasi" class="block px-4 py-2 hover:bg-slate-100 rounded">Estimasi Biaya</a>
+                    </div>
+                </div>
+                <a href="#" class="text-slate-600 hover:text-blue-600 font-semibold">Tentang Kami</a>
+                <a href="#" class="text-slate-600 hover:text-blue-600 font-semibold">Kontak</a>
+            </div>
+            <a href="#" class="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                Login / Register
+            </a>
+            <button class="md:hidden text-slate-800">
+                <i class="ph-bold ph-list text-3xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section class="hero-gradient text-white">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Solusi Lengkap Kebutuhan Teknologi Anda</h1>
+                <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+                    Dari penjualan hingga servis profesional, ABICOM siap membantu. Cek estimasi biaya perbaikan atau lacak status servis Anda secara online.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#produk" class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-slate-100 transition-transform transform hover:scale-105">
+                        Lihat Produk
+                    </a>
+                    <a href="#servis" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                        Info Servis
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Layanan Unggulan Section ===== -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Layanan Unggulan Kami</h2>
+                    <p class="text-slate-500 mt-2">Menyediakan semua yang Anda butuhkan dalam satu tempat.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Card 1: Penjualan -->
+                    <div class="p-8 border border-slate-200 rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <i class="ph-bold ph-desktop-tower text-5xl text-blue-600 mb-4 inline-block"></i>
+                        <h3 class="text-xl font-bold mb-2">Penjualan Komputer & Laptop</h3>
+                        <p class="text-slate-500">Temukan berbagai pilihan PC, laptop, dan komponen berkualitas dengan harga terbaik.</p>
+                    </div>
+                    <!-- Card 2: Servis -->
+                    <div class="p-8 border border-slate-200 rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <i class="ph-bold ph-wrench text-5xl text-blue-600 mb-4 inline-block"></i>
+                        <h3 class="text-xl font-bold mb-2">Servis Profesional</h3>
+                        <p class="text-slate-500">Perbaikan cepat dan transparan oleh teknisi berpengalaman. Cek estimasi biaya online!</p>
+                    </div>
+                    <!-- Card 3: Aksesoris -->
+                    <div class="p-8 border border-slate-200 rounded-lg shadow-sm hover:shadow-xl transition-shadow">
+                        <i class="ph-bold ph-keyboard text-5xl text-blue-600 mb-4 inline-block"></i>
+                        <h3 class="text-xl font-bold mb-2">Aksesoris Lengkap</h3>
+                        <p class="text-slate-500">Keyboard, mouse, monitor, dan semua aksesoris pendukung produktivitas Anda ada di sini.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Produk Unggulan Section ===== -->
+        <section id="produk" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Produk Unggulan</h2>
+                    <p class="text-slate-500 mt-2">Beberapa produk pilihan yang paling diminati pelanggan kami.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Contoh Produk 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://images.tokopedia.net/img/cache/700/OJWluG/2024/1/3/5c005fab-9307-4063-b1f2-1dd49fde91f3.jpg" alt="Gambar Laptop Gaming" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Laptop Gaming Nitro V15</h3>
+                            <p class="text-slate-500 mb-4">Performa tinggi untuk gaming dan desain grafis.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-extrabold text-blue-600">Rp 15.250.000</span>
+                                <a href="#" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full font-semibold text-sm hover:bg-slate-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://cdn.eurekabookhouse.co.id/ebh/product/all/Cuplikan_layar_2023-09-08_151148.png" alt="Gambar PC Rakitan" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">PC Rakitan Office Pro</h3>
+                            <p class="text-slate-500 mb-4">Andal untuk pekerjaan kantor dan multitasking.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-extrabold text-blue-600">Rp 8.500.000</span>
+                                <a href="#" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full font-semibold text-sm hover:bg-slate-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://media.dinomarket.com/docs/imgTD/2022-07/tv_1_180722150726_ll.jpg.jpg" alt="Gambar Monitor IPS" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Monitor ViewSonic 24" IPS</h3>
+                            <p class="text-slate-500 mb-4">Warna akurat dan sudut pandang lebar.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-extrabold text-blue-600">Rp 2.100.000</span>
+                                <a href="#" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full font-semibold text-sm hover:bg-slate-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contoh Produk 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://static.wixstatic.com/media/8517ed_f651ee46d3ae4788ad22aec0ed6bb233~mv2.png/v1/fill/w_1148,h_948,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/8517ed_f651ee46d3ae4788ad22aec0ed6bb233~mv2.png" alt="Gambar Keyboard Mechanical" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Keyboard Mechanical RGB</h3>
+                            <p class="text-slate-500 mb-4">Pengalaman mengetik responsif dengan lampu RGB.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-extrabold text-blue-600">Rp 850.000</span>
+                                <a href="#" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full font-semibold text-sm hover:bg-slate-200">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Servis Section ===== -->
+        <section id="servis" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Layanan Servis Kami</h2>
+                    <p class="text-slate-500 mt-2">Transparan dan mudah - baik untuk pelanggan baru maupun yang sudah terdaftar</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Lacak Servis -->
+                    <div id="lacak" class="bg-blue-50 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i class="ph-bold ph-truck text-3xl text-blue-600 mr-4"></i>
+                            <h3 class="text-xl font-bold">Lacak Status Servis</h3>
+                        </div>
+                        <p class="text-slate-600 mb-6">Sudah meninggalkan perangkat Anda di ABICOM? Masukkan ID Servis untuk melacak progres perbaikan.</p>
+                        <form class="space-y-4">
+                            <input type="text" placeholder="Masukkan ID Servis" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-full">Lacak Sekarang</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Estimasi Biaya -->
+                    <div id="estimasi" class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i class="ph-bold ph-currency-circle-dollar text-3xl text-blue-600 mr-4"></i>
+                            <h3 class="text-xl font-bold">Estimasi Biaya Servis</h3>
+                        </div>
+                        <p class="text-slate-600 mb-6">Periksa perkiraan biaya perbaikan untuk perangkat Anda sebelum datang ke toko.</p>
+                        <a href="#estimasi-form" class="block bg-white text-blue-600 border border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 text-center transition-colors">
+                            Cek Estimasi Biaya
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Form Estimasi Biaya (Hidden by default) ===== -->
+        <section id="estimasi-form" class="py-12 bg-slate-50 hidden">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="bg-white p-8 md:p-10 rounded-xl shadow-md">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-2xl font-bold text-slate-800">Estimasi Biaya Servis</h3>
+                        <button onclick="document.getElementById('estimasi-form').classList.add('hidden')" class="text-slate-400 hover:text-slate-600">
+                            <i class="ph-bold ph-x text-2xl"></i>
+                        </button>
+                    </div>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-slate-700 font-medium mb-2">Jenis Perangkat</label>
+                            <select class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih Jenis Perangkat</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="pc">PC Desktop</option>
+                                <option value="printer">Printer</option>
+                                <option value="monitor">Monitor</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-slate-700 font-medium mb-2">Masalah yang Dialami</label>
+                            <select class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih Jenis Masalah</option>
+                                <option value="hardware">Kerusakan Hardware</option>
+                                <option value="software">Masalah Software/Virus</option>
+                                <option value="screen">Ganti Layar/LCD</option>
+                                <option value="battery">Ganti Baterai</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-slate-700 font-medium mb-2">Merek Perangkat</label>
+                            <input type="text" placeholder="Contoh: Asus, HP, dll" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-slate-700 font-medium mb-2">Deskripsi Masalah (Opsional)</label>
+                            <textarea rows="3" placeholder="Jelaskan masalah yang dialami secara singkat" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-4 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                            Dapatkan Estimasi
+                        </button>
+                    </form>
+                    
+                    <div class="mt-8 pt-6 border-t border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-3">Range Biaya Servis Umum:</h4>
+                        <ul class="space-y-2 text-slate-600">
+                            <li class="flex justify-between"><span>Ganti layar laptop</span> <span>Rp 1.500.000 - Rp 3.000.000</span></li>
+                            <li class="flex justify-between"><span>Perbaikan motherboard</span> <span>Rp 500.000 - Rp 2.500.000</span></li>
+                            <li class="flex justify-between"><span>Install ulang OS</span> <span>Rp 200.000 - Rp 400.000</span></li>
+                            <li class="flex justify-between"><span>Pembersihan & perawatan</span> <span>Rp 150.000 - Rp 300.000</span></li>
+                        </ul>
+                        <p class="mt-4 text-sm text-slate-500">*Estimasi akhir mungkin berbeda setelah diagnosa di toko.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA Section ===== -->
+        <section class="bg-blue-600 text-white">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Butuh Bantuan Teknisi?</h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">Tim profesional kami siap membantu masalah perangkat Anda. Hubungi sekarang atau kunjungi toko kami di Sukabumi.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors">
+                        <i class="ph-bold ph-phone mr-2"></i> Hubungi Kami
+                    </a>
+                    <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors">
+                        <i class="ph-bold ph-map-pin mr-2"></i> Petunjuk Arah
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-slate-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Kolom 1: Tentang -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ABICOM</h3>
+                    <p class="text-slate-400">Toko komputer dan pusat servis terpercaya di Kota Sukabumi. Kami menyediakan produk berkualitas dan layanan profesional untuk semua kebutuhan teknologi Anda.</p>
+                </div>
+                <!-- Kolom 2: Tautan Cepat -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#produk" class="text-slate-400 hover:text-white">Produk</a></li>
+                        <li><a href="#servis" class="text-slate-400 hover:text-white">Servis</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white">Tentang Kami</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white">Kontak</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Kontak -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-start"><i class="ph-fill ph-map-pin-line mt-1 mr-3"></i><span>Shopping Center, Jl. A. Yani Blok D4 No.92 Lantai 2, Kota Sukabumi, Jawa Barat 43111</span></li>
+                        <li class="flex items-start"><i class="ph-fill ph-phone mt-1 mr-3"></i><span>0815-6355-9382</span></li>
+                        <li class="flex items-start"><i class="ph-fill ph-envelope mt-1 mr-3"></i><span>kontak@abicom.co.id</span></li>
+                    </ul>
+                </div>
+                <!-- Kolom 4: Sosial Media -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="ph-fill ph-facebook-logo text-3xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="ph-fill ph-instagram-logo text-3xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white"><i class="ph-fill ph-whatsapp-logo text-3xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-700 pt-8 text-center text-slate-500">
+                <p>&copy; 2025 ABICOM. Toko Komputer Terpercaya! </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to show/hide the estimation form
+        document.querySelectorAll('[href="#estimasi-form"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('estimasi-form').classList.remove('hidden');
+                window.scrollTo({
+                    top: document.getElementById('estimasi-form').offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
