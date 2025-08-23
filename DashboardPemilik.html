@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pemilik - ABICOM</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icon Library: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Custom styles for a better look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active navigation link */
+        .sidebar-link.active {
+            background-color: #1d4ed8; /* dark blue */
+            color: white;
+            font-weight: 700;
+        }
+        .sidebar-link.active i {
+            color: white;
+        }
+        /* Hide scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <div class="flex h-screen bg-slate-100">
+        <!-- ===== Sidebar / Navigasi ===== -->
+        <aside class="w-64 flex-shrink-0 bg-slate-800 text-slate-300 flex flex-col">
+            <!-- Logo -->
+            <div class="h-20 flex items-center justify-center border-b border-slate-700">
+                 <a href="#" class="flex items-center space-x-3">
+                    <div class="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold text-xl">
+                        A
+                    </div>
+                    <span class="text-2xl font-bold text-white">ABICOM</span>
+                </a>
+            </div>
+            <!-- Menu -->
+            <nav class="flex-grow px-4 py-6">
+                <ul class="space-y-2">
+                    <li><a href="#" class="sidebar-link active flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="dashboard"><i class="ph-bold ph-gauge text-xl text-slate-400"></i><span>Dashboard</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="laporan-penjualan"><i class="ph-bold ph-chart-line text-xl text-slate-400"></i><span>Laporan Penjualan</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="laporan-stok"><i class="ph-bold ph-archive text-xl text-slate-400"></i><span>Laporan Stok Barang</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="laporan-servis"><i class="ph-bold ph-wrench text-xl text-slate-400"></i><span>Laporan Servis</span></a></li>
+                </ul>
+            </nav>
+            <!-- User Profile & Logout -->
+            <div class="p-4 border-t border-slate-700">
+                 <div class="mb-4">
+                    <p class="text-sm font-semibold text-white">Bapak Cecep (Pemilik)</p>
+                    <p class="text-xs text-slate-400">Logged in</p>
+                </div>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500 hover:text-white transition-colors">
+                    <i class="ph-bold ph-sign-out text-xl"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ===== Main Content Area ===== -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            
+            <!-- == Halaman: Dashboard Pemilik == -->
+            <div id="page-dashboard" class="page-content">
+                <h1 class="text-3xl font-bold text-slate-800 mb-2">Dashboard Pemilik</h1>
+                <p class="text-slate-500 mb-8">Ringkasan performa bisnis ABICOM bulan ini.</p>
+                <!-- KPI Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-slate-500 text-sm mb-1">Omzet Bulan Ini</p>
+                        <p class="text-4xl font-bold text-green-600">Rp 45.750.000</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-slate-500 text-sm mb-1">Total Servis Aktif</p>
+                        <p class="text-4xl font-bold text-blue-600">7</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-slate-500 text-sm mb-1">Produk Terlaris</p>
+                        <p class="text-2xl font-bold text-indigo-600">Keyboard Mechanical</p>
+                    </div>
+                </div>
+                <!-- Sales Chart -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-xl font-bold mb-4">Tren Penjualan (7 Hari Terakhir)</h2>
+                    <img src="https://www.forcemanager.com/wp-content/uploads/Blog_how_to_do_a_weekly_sales_report_graph_5.png" alt="Grafik Penjualan" class="w-full h-auto rounded-lg">
+                </div>
+            </div>
+
+            <!-- == Halaman: Laporan Penjualan == -->
+            <div id="page-laporan-penjualan" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Laporan Penjualan</h1>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold">Detail Transaksi</h2>
+                        <input type="date" class="p-2 border border-slate-300 rounded-lg">
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b bg-slate-50">
+                                <th class="p-4 font-semibold">ID Transaksi</th>
+                                <th class="p-4 font-semibold">Tanggal</th>
+                                <th class="p-4 font-semibold">Pelanggan</th>
+                                <th class="p-4 font-semibold">Jenis</th>
+                                <th class="p-4 font-semibold">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-4">#POS-056</td>
+                                <td class="p-4">19 Juli 2025</td>
+                                <td class="p-4">Walk-in</td>
+                                <td class="p-4">Penjualan</td>
+                                <td class="p-4 font-semibold">Rp 850.000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#WEB-101</td>
+                                <td class="p-4">19 Juli 2025</td>
+                                <td class="p-4">Andi Wijaya</td>
+                                <td class="p-4">Online</td>
+                                <td class="p-4 font-semibold">Rp 2.100.000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#POS-055</td>
+                                <td class="p-4">18 Juli 2025</td>
+                                <td class="p-4">Walk-in</td>
+                                <td class="p-4">Penjualan</td>
+                                <td class="p-4 font-semibold">Rp 1.250.000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#WEB-100</td>
+                                <td class="p-4">17 Juli 2025</td>
+                                <td class="p-4">Budi Santoso</td>
+                                <td class="p-4">Online</td>
+                                <td class="p-4 font-semibold">Rp 3.450.000</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#POS-054</td>
+                                <td class="p-4">16 Juli 2025</td>
+                                <td class="p-4">Walk-in</td>
+                                <td class="p-4">Servis</td>
+                                <td class="p-4 font-semibold">Rp 750.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- == Halaman: Laporan Stok Barang == -->
+            <div id="page-laporan-stok" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Laporan Stok Barang</h1>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold">Status Inventori</h2>
+                        <input type="text" placeholder="Cari barang..." class="p-2 border border-slate-300 rounded-lg">
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b bg-slate-50">
+                                <th class="p-4 font-semibold">ID Barang</th>
+                                <th class="p-4 font-semibold">Nama Barang</th>
+                                <th class="p-4 font-semibold">Kategori</th>
+                                <th class="p-4 font-semibold">Sisa Stok</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-4">KB-001</td>
+                                <td class="p-4">Keyboard Mechanical RGB</td>
+                                <td class="p-4">Aksesoris</td>
+                                <td class="p-4 font-bold">12</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">MN-002</td>
+                                <td class="p-4">Monitor ViewSonic 24" IPS</td>
+                                <td class="p-4">Monitor</td>
+                                <td class="p-4 font-bold text-red-500">3 (Kritis)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">LT-003</td>
+                                <td class="p-4">Laptop Asus ROG G15</td>
+                                <td class="p-4">Laptop</td>
+                                <td class="p-4 font-bold">5</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">MS-004</td>
+                                <td class="p-4">Mouse Gaming Wireless</td>
+                                <td class="p-4">Aksesoris</td>
+                                <td class="p-4 font-bold">8</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">HD-005</td>
+                                <td class="p-4">HDD External 1TB</td>
+                                <td class="p-4">Storage</td>
+                                <td class="p-4 font-bold text-yellow-500">2 (Hampir Habis)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- == Halaman: Laporan Servis == -->
+            <div id="page-laporan-servis" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Laporan Servis</h1>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-xl font-bold mb-6">Ringkasan Servis Aktif</h2>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b bg-slate-50">
+                                <th class="p-4 font-semibold">ID Servis</th>
+                                <th class="p-4 font-semibold">Pelanggan</th>
+                                <th class="p-4 font-semibold">Perangkat</th>
+                                <th class="p-4 font-semibold">Tanggal Masuk</th>
+                                <th class="p-4 font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-4">#SVC-2025-007</td>
+                                <td class="p-4">Gilhan S.H.</td>
+                                <td class="p-4">Laptop Asus ROG G15</td>
+                                <td class="p-4">18 Juli 2025</td>
+                                <td class="p-4"><span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Sedang Dikerjakan</span></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#SVC-2025-004</td>
+                                <td class="p-4">Budi Santoso</td>
+                                <td class="p-4">PC Rakitan</td>
+                                <td class="p-4">10 Juni 2025</td>
+                                <td class="p-4"><span class="bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">Menunggu Sparepart</span></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#SVC-2025-006</td>
+                                <td class="p-4">Andi Wijaya</td>
+                                <td class="p-4">MacBook Air M1</td>
+                                <td class="p-4">15 Juli 2025</td>
+                                <td class="p-4"><span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Selesai</span></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#SVC-2025-005</td>
+                                <td class="p-4">Citra Dewi</td>
+                                <td class="p-4">Printer Epson L3210</td>
+                                <td class="p-4">12 Juli 2025</td>
+                                <td class="p-4"><span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Sedang Dikerjakan</span></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#SVC-2025-003</td>
+                                <td class="p-4">Dian Pratama</td>
+                                <td class="p-4">Monitor LG 27"</td>
+                                <td class="p-4">5 Juni 2025</td>
+                                <td class="p-4"><span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">Menunggu Konfirmasi</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // JavaScript untuk navigasi antar halaman (SPA-like functionality)
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.sidebar-link');
+            const pages = document.querySelectorAll('.page-content');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.dataset.page;
+
+                    // Sembunyikan semua halaman
+                    pages.forEach(page => {
+                        page.classList.add('hidden');
+                    });
+
+                    // Tampilkan halaman yang dipilih
+                    const targetPage = document.getElementById('page-' + pageId);
+                    if (targetPage) {
+                        targetPage.classList.remove('hidden');
+                    }
+                    
+                    // Atur link aktif
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

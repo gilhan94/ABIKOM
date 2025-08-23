@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - ABICOM</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icon Library: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Custom styles for a better look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active navigation link */
+        .sidebar-link.active {
+            background-color: #1d4ed8; /* dark blue */
+            color: white;
+            font-weight: 700;
+        }
+        .sidebar-link.active i {
+            color: white;
+        }
+        /* Hide scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        /* Custom style for POS tabs */
+        .pos-tab.active {
+            border-bottom-color: #2563eb; /* blue-600 */
+            color: #2563eb;
+            font-weight: 600;
+        }
+        /* Simple transition for modal */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <div class="flex h-screen bg-slate-100">
+        <!-- ===== Sidebar / Navigasi ===== -->
+        <aside class="w-64 flex-shrink-0 bg-slate-800 text-slate-300 flex flex-col">
+            <!-- Logo -->
+            <div class="h-20 flex items-center justify-center border-b border-slate-700">
+                 <a href="#" class="flex items-center space-x-3">
+                    <div class="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold text-xl">
+                        A
+                    </div>
+                    <span class="text-2xl font-bold text-white">ABICOM</span>
+                </a>
+            </div>
+            <!-- Menu -->
+            <nav class="flex-grow px-4 py-6">
+                <ul class="space-y-2">
+                    <li><a href="#" class="sidebar-link active flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="dashboard"><i class="ph-bold ph-gauge text-xl text-slate-400"></i><span>Dashboard</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="pos"><i class="ph-bold ph-desktop text-xl text-slate-400"></i><span>Transaksi Baru (POS)</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="pesanan"><i class="ph-bold ph-package text-xl text-slate-400"></i><span>Kelola Pesanan Online</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="barang"><i class="ph-bold ph-archive text-xl text-slate-400"></i><span>Kelola Barang</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="pelanggan"><i class="ph-bold ph-users text-xl text-slate-400"></i><span>Kelola Pelanggan</span></a></li>
+                </ul>
+            </nav>
+            <!-- User Profile & Logout -->
+            <div class="p-4 border-t border-slate-700">
+                 <div class="mb-4">
+                    <p class="text-sm font-semibold text-white">Slamet (Admin)</p>
+                    <p class="text-xs text-slate-400">Logged in</p>
+                </div>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500 hover:text-white transition-colors">
+                    <i class="ph-bold ph-sign-out text-xl"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ===== Main Content Area ===== -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            
+            <!-- == Halaman: Dashboard Admin == -->
+            <div id="page-dashboard" class="page-content">
+                <h1 class="text-3xl font-bold text-slate-800 mb-2">Dashboard Admin</h1>
+                <p class="text-slate-500 mb-8">Ringkasan aktivitas penjualan hari ini.</p>
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-slate-500 text-sm mb-1">Pendapatan Hari Ini</p>
+                        <p class="text-4xl font-bold text-green-600">Rp 2.550.000</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-slate-500 text-sm mb-1">Transaksi Hari Ini</p>
+                        <p class="text-4xl font-bold text-blue-600">5</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-slate-500 text-sm mb-1">Pesanan Online Baru</p>
+                        <p class="text-4xl font-bold text-yellow-500">2</p>
+                    </div>
+                </div>
+                <!-- Recent Online Orders -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-xl font-bold mb-4">Pesanan Online Terbaru</h2>
+                     <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b bg-slate-50">
+                                <th class="p-4 font-semibold text-sm">ID Pesanan</th>
+                                <th class="p-4 font-semibold text-sm">Pelanggan</th>
+                                <th class="p-4 font-semibold text-sm">Total</th>
+                                <th class="p-4 font-semibold text-sm">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-4">#WEB-102</td>
+                                <td class="p-4">Gilhan S.H.</td>
+                                <td class="p-4">Rp 850.000</td>
+                                <td class="p-4"><span class="bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">Menunggu Pembayaran</span></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">#WEB-101</td>
+                                <td class="p-4">Andi Wijaya</td>
+                                <td class="p-4">Rp 2.100.000</td>
+                                <td class="p-4"><span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Pembayaran Diterima</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- == Halaman: Transaksi Baru (POS) == -->
+            <div id="page-pos" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Transaksi Baru (Point of Sale)</h1>
+                <div class="grid grid-cols-3 gap-8">
+                    <!-- Left Side: Product Selection -->
+                    <div class="col-span-2 bg-white p-6 rounded-lg shadow-sm">
+                        <!-- Tabs for Produk and Servis -->
+                        <div class="border-b border-gray-200 mb-6">
+                            <nav class="flex space-x-8" aria-label="Tabs">
+                                <button class="pos-tab active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-target="pos-produk">Produk</button>
+                                <button class="pos-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700" data-target="pos-servis">Tagihan Servis</button>
+                            </nav>
+                        </div>
+
+                        <!-- Content for Produk Tab -->
+                        <div id="pos-produk" class="pos-content">
+                            <input type="text" placeholder="Cari atau pindai produk..." class="w-full p-3 border border-slate-300 rounded-lg mb-6">
+                            <div class="grid grid-cols-3 gap-4">
+                                <!-- Example Product POS -->
+                                <div class="product-item border p-3 rounded-lg text-center hover:border-blue-500 hover:bg-blue-50 cursor-pointer" data-name="Keyboard Mechanical" data-price="850000">
+                                    <img src="https://placehold.co/200x200/e2e8f0/334155?text=Keyboard" class="mx-auto mb-2 rounded w-full h-auto aspect-square object-cover">
+                                    <p class="font-semibold text-sm">Keyboard Mechanical</p>
+                                    <p class="text-xs text-slate-500">Rp 850.000</p>
+                                </div>
+                                <div class="product-item border p-3 rounded-lg text-center hover:border-blue-500 hover:bg-blue-50 cursor-pointer" data-name="Monitor 24&quot;" data-price="2100000">
+                                    <img src="https://placehold.co/200x200/e2e8f0/334155?text=Monitor" class="mx-auto mb-2 rounded w-full h-auto aspect-square object-cover">
+                                    <p class="font-semibold text-sm">Monitor 24"</p>
+                                    <p class="text-xs text-slate-500">Rp 2.100.000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content for Servis Tab -->
+                        <div id="pos-servis" class="pos-content hidden">
+                            <input type="text" placeholder="Cari nama pelanggan atau ID Servis..." class="w-full p-3 border border-slate-300 rounded-lg mb-6">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="border-b bg-slate-50">
+                                        <th class="p-3 font-semibold text-sm">ID Servis</th>
+                                        <th class="p-3 font-semibold text-sm">Pelanggan</th>
+                                        <th class="p-3 font-semibold text-sm">Total Biaya</th>
+                                        <th class="p-3 font-semibold text-sm">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-3">#SVC-005</td>
+                                        <td class="p-3">Andi Wijaya</td>
+                                        <td class="p-3">Rp 250.000</td>
+                                        <td class="p-3"><button class="add-service-btn bg-blue-100 text-blue-700 font-semibold px-3 py-1 rounded-full text-xs hover:bg-blue-200" data-name="Servis #SVC-005" data-price="250000">Tambah</button></td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">#SVC-006</td>
+                                        <td class="p-3">Budi Santoso</td>
+                                        <td class="p-3">Rp 750.000</td>
+                                        <td class="p-3"><button class="add-service-btn bg-blue-100 text-blue-700 font-semibold px-3 py-1 rounded-full text-xs hover:bg-blue-200" data-name="Servis #SVC-006" data-price="750000">Tambah</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Right Side: Cart & Payment -->
+                    <div class="col-span-1 bg-white p-6 rounded-lg shadow-sm flex flex-col">
+                        <h2 class="text-xl font-bold border-b pb-2 mb-4">Keranjang</h2>
+                        <div id="cart-items" class="flex-grow space-y-3 mb-4 overflow-y-auto">
+                            <!-- Cart items will be dynamically inserted here -->
+                             <p id="cart-empty-message" class="text-slate-400 text-center py-10">Keranjang kosong</p>
+                        </div>
+                        <div class="border-t pt-4 space-y-2">
+                            <div class="flex justify-between font-semibold">
+                                <p>Total</p>
+                                <p id="cart-total">Rp 0</p>
+                            </div>
+                            <button id="pay-button" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 disabled:bg-slate-400 disabled:cursor-not-allowed" disabled>Bayar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other pages remain the same -->
+            <div id="page-pesanan" class="page-content hidden">...</div>
+            <div id="page-barang" class="page-content hidden">...</div>
+            <div id="page-pelanggan" class="page-content hidden">...</div>
+
+        </main>
+    </div>
+
+    <!-- ===== Payment Modal ===== -->
+    <div id="payment-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Detail Pembayaran</h2>
+            
+            <div class="space-y-4">
+                <div class="flex justify-between items-center text-lg border-b pb-2">
+                    <span class="text-slate-500">Total Tagihan:</span>
+                    <span id="modal-total" class="font-bold text-blue-600">Rp 0</span>
+                </div>
+                
+                <div>
+                    <label for="payment-method" class="block text-sm font-medium text-slate-700 mb-1">Metode Pembayaran</label>
+                    <select id="payment-method" class="w-full p-3 border border-slate-300 rounded-lg">
+                        <option value="tunai">Tunai</option>
+                        <option value="qris">QRIS</option>
+                        <option value="debit">Kartu Debit</option>
+                    </select>
+                </div>
+
+                <div id="cash-payment-section">
+                    <label for="amount-paid" class="block text-sm font-medium text-slate-700 mb-1">Jumlah Bayar (Rp)</label>
+                    <input type="number" id="amount-paid" placeholder="e.g., 100000" class="w-full p-3 border border-slate-300 rounded-lg">
+                </div>
+
+                <div class="flex justify-between items-center text-lg pt-2">
+                    <span class="text-slate-500">Kembalian:</span>
+                    <span id="change-due" class="font-bold text-green-600">Rp 0</span>
+                </div>
+            </div>
+
+            <div class="mt-8 flex space-x-4">
+                <button id="cancel-payment-btn" class="w-full bg-slate-200 text-slate-700 py-3 rounded-lg font-bold hover:bg-slate-300">Batal</button>
+                <button id="confirm-payment-btn" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700">Konfirmasi Pembayaran</button>
+            </div>
+        </div>
+    </div>
+     <!-- Success Message Toast -->
+    <div id="success-toast" class="fixed bottom-10 right-10 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300">
+        Pembayaran Berhasil!
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- SPA Navigation Logic ---
+            const navLinks = document.querySelectorAll('.sidebar-link');
+            const pages = document.querySelectorAll('.page-content');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.dataset.page;
+
+                    pages.forEach(page => page.classList.add('hidden'));
+                    const targetPage = document.getElementById('page-' + pageId);
+                    if (targetPage) {
+                        targetPage.classList.remove('hidden');
+                    }
+                    
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // --- POS Tab Logic ---
+            const posTabs = document.querySelectorAll('.pos-tab');
+            const posContents = document.querySelectorAll('.pos-content');
+
+            posTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+
+                    posContents.forEach(content => content.classList.add('hidden'));
+                    document.getElementById(targetId).classList.remove('hidden');
+
+                    posTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // --- POS Interaction & Payment Simulation Logic ---
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cartEmptyMessage = document.getElementById('cart-empty-message');
+            const payButton = document.getElementById('pay-button');
+            
+            const paymentModal = document.getElementById('payment-modal');
+            const modalTotalElement = document.getElementById('modal-total');
+            const paymentMethodSelect = document.getElementById('payment-method');
+            const cashPaymentSection = document.getElementById('cash-payment-section');
+            const amountPaidInput = document.getElementById('amount-paid');
+            const changeDueElement = document.getElementById('change-due');
+            const confirmPaymentBtn = document.getElementById('confirm-payment-btn');
+            const cancelPaymentBtn = document.getElementById('cancel-payment-btn');
+            const successToast = document.getElementById('success-toast');
+
+            let cartItems = [];
+            let totalAmount = 0;
+
+            // Function to format number as Indonesian Rupiah
+            function formatRupiah(number) {
+                return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
+            }
+
+            // Function to update the cart display
+            function updateCart() {
+                cartItemsContainer.innerHTML = ''; // Clear current cart
+                totalAmount = 0;
+
+                if (cartItems.length === 0) {
+                    cartItemsContainer.appendChild(cartEmptyMessage);
+                    cartEmptyMessage.classList.remove('hidden');
+                    payButton.disabled = true;
+                } else {
+                    cartEmptyMessage.classList.add('hidden');
+                    cartItems.forEach((item, index) => {
+                        totalAmount += item.price;
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'flex justify-between items-center';
+                        itemElement.innerHTML = `
+                            <div>
+                                <p class="font-semibold text-sm">${item.name}</p>
+                                <p class="text-xs text-slate-500">1 x ${formatRupiah(item.price)}</p>
+                            </div>
+                            <button class="remove-item-btn text-red-500 hover:text-red-700" data-index="${index}"><i class="ph-bold ph-trash"></i></button>
+                        `;
+                        cartItemsContainer.appendChild(itemElement);
+                    });
+                    payButton.disabled = false;
+                }
+                cartTotalElement.textContent = formatRupiah(totalAmount);
+            }
+
+            // Add product to cart
+            document.querySelectorAll('.product-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const name = item.dataset.name;
+                    const price = parseInt(item.dataset.price);
+                    cartItems.push({ name, price });
+                    updateCart();
+                });
+            });
+            
+            // Add service to cart
+            document.querySelectorAll('.add-service-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const name = btn.dataset.name;
+                    const price = parseInt(btn.dataset.price);
+                    cartItems.push({ name, price });
+                    updateCart();
+                });
+            });
+
+            // Remove item from cart
+            cartItemsContainer.addEventListener('click', function(e) {
+                if (e.target.closest('.remove-item-btn')) {
+                    const button = e.target.closest('.remove-item-btn');
+                    const index = parseInt(button.dataset.index);
+                    cartItems.splice(index, 1); // Remove item from array
+                    updateCart();
+                }
+            });
+
+            // --- Payment Modal Logic ---
+            
+            // Open modal
+            payButton.addEventListener('click', () => {
+                modalTotalElement.textContent = formatRupiah(totalAmount);
+                amountPaidInput.value = '';
+                changeDueElement.textContent = formatRupiah(0);
+                paymentModal.classList.remove('hidden');
+                setTimeout(() => paymentModal.classList.remove('opacity-0'), 10); // Fade in
+            });
+
+            // Close modal
+            function closeModal() {
+                paymentModal.classList.add('opacity-0');
+                setTimeout(() => paymentModal.classList.add('hidden'), 250); // Fade out
+            }
+            cancelPaymentBtn.addEventListener('click', closeModal);
+
+            // Toggle cash input based on payment method
+            paymentMethodSelect.addEventListener('change', () => {
+                if (paymentMethodSelect.value === 'tunai') {
+                    cashPaymentSection.style.display = 'block';
+                } else {
+                    cashPaymentSection.style.display = 'none';
+                    amountPaidInput.value = '';
+                    changeDueElement.textContent = formatRupiah(0);
+                }
+            });
+
+            // Calculate change
+            amountPaidInput.addEventListener('input', () => {
+                const paid = parseInt(amountPaidInput.value) || 0;
+                const change = paid - totalAmount;
+                changeDueElement.textContent = formatRupiah(change >= 0 ? change : 0);
+            });
+
+            // Confirm payment
+            confirmPaymentBtn.addEventListener('click', () => {
+                // Show success toast
+                successToast.classList.remove('opacity-0', 'translate-y-20');
+                
+                // Reset everything
+                cartItems = [];
+                updateCart();
+                closeModal();
+
+                // Hide success toast after 3 seconds
+                setTimeout(() => {
+                    successToast.classList.add('opacity-0', 'translate-y-20');
+                }, 3000);
+            });
+
+            // Initial call to set up the cart view
+            updateCart();
+        });
+    </script>
+
+</body>
+</html>

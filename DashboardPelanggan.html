@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pelanggan - ABICOM</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icon Library: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Custom styles for a better look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active navigation link */
+        .sidebar-link.active {
+            background-color: #1d4ed8; /* dark blue */
+            color: white;
+            font-weight: 700;
+        }
+        .sidebar-link.active i {
+            color: white;
+        }
+        /* Hide scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <div class="flex h-screen bg-slate-100">
+        <!-- ===== Sidebar / Navigasi ===== -->
+        <aside class="w-64 flex-shrink-0 bg-slate-800 text-slate-300 flex flex-col">
+            <!-- Logo -->
+            <div class="h-20 flex items-center justify-center border-b border-slate-700">
+                 <a href="#" class="flex items-center space-x-3">
+                    <div class="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold text-xl">
+                        A
+                    </div>
+                    <span class="text-2xl font-bold text-white">ABICOM</span>
+                </a>
+            </div>
+            <!-- Menu -->
+            <nav class="flex-grow px-4 py-6">
+                <ul class="space-y-2">
+                    <li><a href="#" class="sidebar-link active flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="beranda"><i class="ph-bold ph-house text-xl text-slate-400"></i><span>Beranda</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="lacak-servis"><i class="ph-bold ph-magnifying-glass text-xl text-slate-400"></i><span>Lacak Servis</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="riwayat"><i class="ph-bold ph-clock-counter-clockwise text-xl text-slate-400"></i><span>Riwayat Transaksi</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="produk"><i class="ph-bold ph-shopping-bag-open text-xl text-slate-400"></i><span>Produk / Belanja</span></a></li>
+                    <li><a href="#" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors" data-page="profil"><i class="ph-bold ph-user-circle text-xl text-slate-400"></i><span>Profil Saya</span></a></li>
+                </ul>
+            </nav>
+            <!-- Logout -->
+            <div class="p-4 border-t border-slate-700">
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500 hover:text-white transition-colors">
+                    <i class="ph-bold ph-sign-out text-xl"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ===== Main Content Area ===== -->
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+            
+            <!-- == Halaman: Beranda == -->
+            <div id="page-beranda" class="page-content">
+                <h1 class="text-3xl font-bold text-slate-800 mb-2">Selamat datang, Gilhan!</h1>
+                <p class="text-slate-500 mb-8">Ini adalah ringkasan aktivitas Anda di ABICOM.</p>
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-full"><i class="ph-bold ph-wrench text-2xl"></i></div>
+                        <div>
+                            <p class="text-slate-500 text-sm">Servis Aktif</p>
+                            <p class="text-2xl font-bold">1 Perangkat</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-full"><i class="ph-bold ph-package text-2xl"></i></div>
+                        <div>
+                            <p class="text-slate-500 text-sm">Pesanan Terakhir</p>
+                            <p class="text-2xl font-bold">Dikirim</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm flex items-center space-x-4">
+                        <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full"><i class="ph-bold ph-receipt text-2xl"></i></div>
+                        <div>
+                            <p class="text-slate-500 text-sm">Total Transaksi</p>
+                            <p class="text-2xl font-bold">8 Kali</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quick Actions -->
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <h2 class="text-xl font-bold mb-4">Aksi Cepat</h2>
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                        <button class="w-full md:w-auto flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Lacak Servis Anda</button>
+                        <button class="w-full md:w-auto flex-1 bg-slate-200 text-slate-800 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition-colors">Belanja Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- == Halaman: Lacak Servis == -->
+            <div id="page-lacak-servis" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Lacak Status Servis</h1>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b bg-slate-50">
+                                    <th class="p-4 font-semibold">ID Servis</th>
+                                    <th class="p-4 font-semibold">Perangkat</th>
+                                    <th class="p-4 font-semibold">Tanggal Masuk</th>
+                                    <th class="p-4 font-semibold">Status</th>
+                                    <th class="p-4 font-semibold">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-4">#SVC-2025-007</td>
+                                    <td class="p-4">Laptop Asus ROG G15</td>
+                                    <td class="p-4">18 Juli 2025</td>
+                                    <td class="p-4"><span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Sedang Dikerjakan</span></td>
+                                    <td class="p-4"><a href="#" class="text-blue-600 font-semibold hover:underline">Lihat Detail</a></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-4">#SVC-2025-004</td>
+                                    <td class="p-4">PC Rakitan</td>
+                                    <td class="p-4">10 Juni 2025</td>
+                                    <td class="p-4"><span class="bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">Menunggu Sparepart</span></td>
+                                    <td class="p-4"><a href="#" class="text-blue-600 font-semibold hover:underline">Lihat Detail</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- == Halaman: Riwayat Transaksi == -->
+            <div id="page-riwayat" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Riwayat Transaksi</h1>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex space-x-2 mb-6 border-b pb-4">
+                        <button class="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold text-sm">Semua</button>
+                        <button class="px-4 py-2 rounded-full bg-slate-100 text-slate-600 font-semibold text-sm hover:bg-slate-200">Pembelian</button>
+                        <button class="px-4 py-2 rounded-full bg-slate-100 text-slate-600 font-semibold text-sm hover:bg-slate-200">Servis</button>
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b bg-slate-50">
+                                <th class="p-4 font-semibold">ID Transaksi</th>
+                                <th class="p-4 font-semibold">Tanggal</th>
+                                <th class="p-4 font-semibold">Jenis</th>
+                                <th class="p-4 font-semibold">Total</th>
+                                <th class="p-4 font-semibold">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-4">#INV-2025-101</td>
+                                <td class="p-4">15 Juli 2025</td>
+                                <td class="p-4">Pembelian</td>
+                                <td class="p-4">Rp 850.000</td>
+                                <td class="p-4"><a href="#" class="text-blue-600 hover:text-blue-800"><i class="ph-bold ph-download-simple text-2xl"></i></a></td>
+                            </tr>
+                             <tr class="border-b">
+                                <td class="p-4">#SVC-2025-003</td>
+                                <td class="p-4">25 Mei 2025</td>
+                                <td class="p-4">Servis</td>
+                                <td class="p-4">Rp 250.000</td>
+                                <td class="p-4"><a href="#" class="text-blue-600 hover:text-blue-800"><i class="ph-bold ph-download-simple text-2xl"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- == Halaman: Produk / Belanja == -->
+         <!-- == Halaman: Produk / Belanja == -->
+<div id="page-produk" class="page-content hidden">
+    <h1 class="text-3xl font-bold text-slate-800 mb-8">Katalog Produk</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Product Card 1 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://media.dinomarket.com/docs/imgTD/2018-07/pic_Redragon_K552_1_030718190738_ll.jpg.jpg" alt="Keyboard Mechanical RGB" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">Keyboard Mechanical RGB</h3>
+                <p class="text-slate-500 text-sm mt-1">Switch Red, Anti-ghosting</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 850.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://www.asus.com/media/Odin/websites/global/ProductLine/20200817043812.png" alt="Monitor Gaming 24"" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">Monitor Gaming 24" 144Hz</h3>
+                <p class="text-slate-500 text-sm mt-1">1ms Response, FreeSync</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 2.800.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://i.ebayimg.com/images/g/S54AAOSwZd1VcG2-/s-l1200.jpg" alt="Mouse Wireless" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">Mouse Razer</h3>
+                <p class="text-slate-500 text-sm mt-1">16000 DPI, 6 Tombol</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 650.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://dmassets.micron.com/is/image/microntechnology/product-2400-m2-group%3A3-2-all-others?ts=1728405702380&dpr=off" alt="SSD 1TB" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">SSD NVMe 1TB</h3>
+                <p class="text-slate-500 text-sm mt-1">Read 3500MB/s, Garansi 5 Tahun</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 1.250.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://images-cdn.ubuy.co.id/66a4077bccbafd6959474927-crucial-ram-8gb-kit-2x4gb-ddr4-2400.jpg" alt="RAM DDR4" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">RAM DDR4 16GB (2x8GB)</h3>
+                <p class="text-slate-500 text-sm mt-1">3200MHz, RGB</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 1.100.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 6 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://down-id.img.susercontent.com/file/id-11134208-7rbk7-m8ecz79tm7ugb3" alt="Webcam HD" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">Webcam Full HD 1080p</h3>
+                <p class="text-slate-500 text-sm mt-1">Auto Focus, Built-in Mic</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 750.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 7 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://cdnpro.eraspace.com/media/catalog/product/r/a/razer_headset_blackshark_v2_x_usb_black3.jpg" alt="Headset Gaming" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">Headset Gaming 7.1</h3>
+                <p class="text-slate-500 text-sm mt-1">Surround Sound, Mic</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 950.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 8 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            <img src="https://sosialita.id/assets/uploads/webp/fotoproduk/crop/dBobXZkG20240626110729.jpg.webp" alt="UPS" class="w-full h-48 object-contain p-4">
+            <div class="p-6">
+                <h3 class="font-bold text-lg">UPS 1000VA</h3>
+                <p class="text-slate-500 text-sm mt-1">Backup 30 Menit, AVR</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="font-extrabold text-xl text-blue-600">Rp 1.500.000</span>
+                    <button class="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full text-sm hover:bg-blue-200">Tambah</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+			
+
+            <!-- == Halaman: Profil Saya == -->
+            <div id="page-profil" class="page-content hidden">
+                <h1 class="text-3xl font-bold text-slate-800 mb-8">Profil Saya</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-sm">
+                        <h2 class="text-xl font-bold mb-6">Informasi Akun</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label for="nama" class="block text-sm font-medium text-slate-600 mb-1">Nama Lengkap</label>
+                                <input type="text" id="nama" value="Gilhan Shaleh Hamidif" class="w-full p-3 border border-slate-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-600 mb-1">Alamat Email</label>
+                                <input type="email" id="email" value="gilhan.shaleh@abicom.co.id" class="w-full p-3 border border-slate-300 rounded-lg bg-slate-100" readonly>
+                            </div>
+                             <button class="w-full md:w-auto bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Simpan Perubahan</button>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                         <h2 class="text-xl font-bold mb-6">Ubah Password</h2>
+                         <div class="space-y-6">
+                            <div>
+                                <label for="pass_lama" class="block text-sm font-medium text-slate-600 mb-1">Password Lama</label>
+                                <input type="password" id="pass_lama" class="w-full p-3 border border-slate-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label for="pass_baru" class="block text-sm font-medium text-slate-600 mb-1">Password Baru</label>
+                                <input type="password" id="pass_baru" class="w-full p-3 border border-slate-300 rounded-lg">
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // JavaScript untuk navigasi antar halaman (SPA-like functionality)
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.sidebar-link');
+            const pages = document.querySelectorAll('.page-content');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.dataset.page;
+
+                    // Sembunyikan semua halaman
+                    pages.forEach(page => {
+                        page.classList.add('hidden');
+                    });
+
+                    // Tampilkan halaman yang dipilih
+                    const targetPage = document.getElementById('page-' + pageId);
+                    if (targetPage) {
+                        targetPage.classList.remove('hidden');
+                    }
+                    
+                    // Atur link aktif
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
